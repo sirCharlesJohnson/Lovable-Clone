@@ -1,0 +1,196 @@
+.connect4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.game-title {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 28px;
+}
+
+.status {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.board-container {
+  position: relative;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+.connect4 .board {
+  display: flex !important;
+  flex-direction: column !important;
+  background: #1e88e5;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.connect4 .row {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 5px;
+}
+
+.connect4 .cell {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  background: white;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  transition: transform 0.1s;
+  position: relative;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.connect4 .cell:hover:not(.empty):not(.disabled) {
+  transform: scale(1.05);
+}
+
+.connect4 .cell.empty {
+  background: #e3f2fd;
+  cursor: default;
+}
+
+.connect4 .cell .piece {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.connect4 .cell .piece.red {
+  background: #f44336;
+  background: radial-gradient(circle at 30% 30%, #ff6b6b, #f44336);
+}
+
+.connect4 .cell .piece.yellow {
+  background: #ffeb3b;
+  background: radial-gradient(circle at 30% 30%, #fff59d, #ffeb3b);
+}
+
+.connect4 .cell.winner .piece {
+  animation: pulse 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.2), 0 0 0 0 rgba(244, 67, 54, 0.7);
+  }
+  to {
+    transform: scale(1.1);
+    box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.2), 0 0 20px 5px rgba(244, 67, 54, 0.7);
+  }
+}
+
+.column-indicators {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.column-indicator {
+  width: 60px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  color: #666;
+  user-select: none;
+  -webkit-user-select: none;
+  position: relative;
+  z-index: 10;
+}
+
+.column-indicator:hover:not(.disabled) {
+  background: #e3f2fd;
+  transform: translateY(-2px);
+}
+
+.column-indicator.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.column-indicator:not(.disabled) {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.column-indicator.red {
+  color: #f44336;
+}
+
+.column-indicator.yellow {
+  color: #ffeb3b;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.reset-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: #4CAF50;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 10px;
+}
+
+.reset-button:hover {
+  background: #45a049;
+}
+
+.reset-button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 600px) {
+  .connect4 .cell {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    min-height: 45px;
+  }
+  
+  .connect4 .cell .piece {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .connect4 .column-indicator {
+    width: 45px;
+    font-size: 16px;
+  }
+}
+

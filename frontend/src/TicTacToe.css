@@ -1,0 +1,160 @@
+.tic-tac-toe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.game-title {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.status {
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #555;
+  height: 24px;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 15px;
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.score-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-label {
+  font-size: 0.9em;
+  color: #666;
+  font-weight: bold;
+}
+
+.score-value {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+  background-color: #eee;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.square {
+  width: 80px;
+  height: 80px;
+  background: white;
+  border: none;
+  font-size: 2.5em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  color: #333;
+}
+
+.square:hover:not(:disabled) {
+  background: #f8f9fa;
+}
+
+.square.x {
+  color: #e91e63;
+}
+
+.square.o {
+  color: #2196f3;
+}
+
+.square.winner {
+  background-color: #e8f5e9;
+  animation: pulse 1.5s infinite;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+.reset-button, .exit-button, .menu-btn {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.reset-button {
+  background-color: #333;
+  color: white;
+}
+.reset-button:hover {
+  background-color: #555;
+}
+
+.exit-button {
+  background-color: #f44336;
+  color: white;
+}
+.exit-button:hover {
+  background-color: #d32f2f;
+}
+
+.menu-btn {
+  background-color: #2196f3;
+  color: white;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+.menu-btn:hover {
+  background-color: #1976d2;
+}
+
+.menu {
+  padding: 40px 20px;
+}
+
+.online-info {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.waiting-text {
+  font-style: italic;
+  color: #ff9800;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
